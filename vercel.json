@@ -2,9 +2,12 @@
   "version": 2,
   "builds": [
     {
-      "src": "vercel_static/**",
+      "src": "vercel_static/*",
       "use": "@vercel/static"
     }
   ],
-  "routes": [{ "src": "/(.*)", "dest": "/vercel_static/$1" }]
+  "routes": [
+    { "src": "/static/(.*)", "dest": "/vercel_static/$1" },
+    { "src": "/img/(.*)", "dest": "/vercel_static/img/$1" }
+  ]
 }
