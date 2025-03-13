@@ -40,7 +40,7 @@ DEBUG = os.getenv("DEBUG", "False") == "True"
 
 
 # ALLOWED_HOSTS = ["*"]
-ALLOWED_HOSTS = ["chech.me", "www.chech.me", "your-vercel-project.vercel.app"]
+ALLOWED_HOSTS = ["vercel.app"]
 
 
 
