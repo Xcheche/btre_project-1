@@ -2,6 +2,9 @@ import os
 from pathlib import Path
 import dj_database_url  # type: ignore
 from dotenv import load_dotenv  # type: ignore
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Load environment variables
 load_dotenv()
@@ -20,12 +23,16 @@ ALLOWED_HOSTS = ["*"]
 
 # Application definition
 INSTALLED_APPS = [
+    # External apps
     'pages.apps.PagesConfig',
     'whitenoise.runserver_nostatic',  # ✅ Whitenoise for static files
     'listings.apps.ListingsConfig',
     'realtors.apps.RealtorsConfig',
     'accounts.apps.AccountsConfig',
     'contacts.apps.ContactsConfig',
+      'cloudinary',
+    'cloudinary_storage',
+     'ckeditor',
     
     'django.contrib.admin',
     'django.contrib.auth',
@@ -102,6 +109,36 @@ if not DEBUG:  # ✅ Only use WhiteNoise in production
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+
+# Cloudinary Configuration from Environment Variables
+CLOUDINARY_STORAGE = {
+    "CLOUD_NAME": os.getenv("CLOUDINARY_CLOUD_NAME"),
+    "API_KEY": os.getenv("CLOUDINARY_API_KEY"),
+    "API_SECRET": os.getenv("CLOUDINARY_API_SECRET"),
+    
+}
+
+cloudinary.config(
+    cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME"),
+    api_key=os.getenv("CLOUDINARY_API_KEY"),
+    api_secret=os.getenv("CLOUDINARY_API_SECRET"),
+)
+
+
+
+
+#Upload path for ckeditor
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 300,
+        'width': 700,
+    }
+}
 
 # Messages
 from django.contrib.messages import constants as messages
