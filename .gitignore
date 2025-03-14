@@ -12,3 +12,4 @@ venv
 .env
 .vercel
 .env
+.env*.local

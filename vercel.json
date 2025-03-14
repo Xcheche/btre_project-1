@@ -1,14 +1,14 @@
 {
-  "version": 2,
-  "routes": [
-    { "src": "/(.*)", "dest": "btre/wsgi.py" }
-  ],
-  "env": {
-    "DEBUG": "False",
-    "DATABASE_URL": "@database_url",
-    "SECRET_KEY": "@secret_key"
-  }
+    "builds": [{
+      "src": "btre/wsgi.py",
+      "use": "@vercel/python",
+      "config": { "maxLambdaSize": "15mb", "runtime": "python3.11.3" }
+    }],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "btre/wsgi.py"
+      }
+    ]
 }
-
-
 

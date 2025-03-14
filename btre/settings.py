@@ -21,6 +21,7 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 INSTALLED_APPS = [
     'pages.apps.PagesConfig',
+    'whitenoise.runserver_nostatic',  # ✅ Whitenoise for static files
     'listings.apps.ListingsConfig',
     'realtors.apps.RealtorsConfig',
     'accounts.apps.AccountsConfig',
