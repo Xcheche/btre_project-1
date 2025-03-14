@@ -137,6 +137,7 @@ CKEDITOR_CONFIGS = {
         'toolbar': 'full',
         'height': 300,
         'width': 700,
+        'extraPlugins': 'uploadimage',  # Allow image upload
     }
 }
 
