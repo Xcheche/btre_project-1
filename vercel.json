@@ -2,12 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "vercel_static/*",
-      "use": "@vercel/static"
+      "src": "btre/wsgi.py",
+      "use": "@vercel/python"
     }
   ],
   "routes": [
-    { "src": "/static/(.*)", "dest": "/vercel_static/$1" },
-    { "src": "/img/(.*)", "dest": "/vercel_static/img/$1" }
+    {
+      "src": "/(.*)",
+      "dest": "btre/wsgi.py"
+    }
   ]
 }
