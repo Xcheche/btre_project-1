@@ -1,17 +1,14 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "btre/wsgi.py",
-      "use": "@vercel/python"
-    }
-  ],
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "btre/wsgi.py"
-    }
-  ]
+    { "src": "/(.*)", "dest": "btre/wsgi.py" }
+  ],
+  "env": {
+    "DEBUG": "False",
+    "DATABASE_URL": "@database_url",
+    "SECRET_KEY": "@secret_key"
+  }
 }
+
 
 
