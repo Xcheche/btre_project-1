@@ -19,7 +19,9 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # Set DEBUG based on environment variable
 DEBUG = os.getenv('DEBUG', 'False') == 'True'  # Defaults to False if not set
 
-ALLOWED_HOSTS = ["*"]
+# ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["chech.me", "www.chech.me"]
+
 
 # Application definition
 INSTALLED_APPS = [
