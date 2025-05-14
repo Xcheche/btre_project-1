@@ -78,15 +78,19 @@ TEMPLATES = [
 WSGI_APPLICATION = 'btre.wsgi.application'
 
 # Database
-DATABASES ={
-    'default':dj_database_url.config(default=os.getenv('DATABASE_URL'))
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('DATABASE_NAME'),
+        'USER': os.getenv('DATABASE_USER'),
+        'PASSWORD': os.getenv('DATABASE_PASSWORD'),
+        'HOST': os.getenv('DATABASE_HOST'),
+        'PORT': os.getenv('DATABASE_PORT'),
+        'OPTIONS': {
+            'sslmode': os.getenv('DATABASE_SSLMODE'),
+        },
+    }
 }
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 
 # Static files (CSS, JavaScript, Images)
 # Static files
